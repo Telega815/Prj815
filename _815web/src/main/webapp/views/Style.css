@@ -1,0 +1,51 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+.downloadBlock {
+	margin-left: auto;
+	margin-right: auto;
+	background: #9C0608;
+	width: 600px;
+	margin-bottom: 100px;
+	padding-top: 1px;
+	padding-bottom: 8px;
+	text-align: center;
+}
+
+.textField {
+	margin-bottom: 8px;
+	height: 200px;
+}
+
+.block1 {
+    border-radius: 3px;
+    border: 2px solid #FD0004;
+    background: #10E500;
+    margin-left: auto;
+    margin-right: auto;
+    color: #000674;
+    width: 600px;
+    height: 600px;
+}
+
+.header {
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 3px 3px 0px 0px;
+	border: 2px solid #0F0F0F;
+	background: #262626;
+	height: 50px;
+}
+.timeBlock {
+	margin-top: 15px;;
+	margin-left: auto;
+	width: 200px;
+	height: 20px;
+	position: relative;
+	background: #D8484A;
+	display: flex;
+	align-items: center;
+	justify-content: center
+}
