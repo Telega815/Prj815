@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="_815web:war">
+    <output-path>$PROJECT_DIR$/_815web/target</output-path>
+    <root id="archive" name="815-web-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="_815web:war exploded" />
+    </root>
+  </artifact>
+</component>
