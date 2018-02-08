@@ -13,7 +13,7 @@
     <bytecodeTargetLevel>
       <module name="_815web" target="9" />
       <module name="project_815" target="1.5" />
-      <module name="se" target="1.8" />
+      <module name="se" target="9" />
     </bytecodeTargetLevel>
   </component>
 </project>

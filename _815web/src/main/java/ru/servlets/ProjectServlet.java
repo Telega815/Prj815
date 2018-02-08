@@ -1,7 +1,9 @@
 package ru.servlets;
 
 
+import ru.test815.db.Controller;
 import ru.test815.db.Settings;
+import ru.test815.db.UserPackage.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -14,7 +16,7 @@ import java.io.*;
 
 import java.util.Collection;
 
-@MultipartConfig(location="C:/Projects/project_815/tmp", fileSizeThreshold=1024*1024, maxFileSize=1024*1024*5, maxRequestSize=1024*1024*5*5)
+@MultipartConfig(location="C:/prj/1/tmp", fileSizeThreshold=1024*1024*20, maxFileSize=1024*1024*20*5, maxRequestSize=1024*1024*20*5*5)
 public class ProjectServlet extends HttpServlet {
     Settings settings = Settings.getInstance();
 
@@ -27,6 +29,7 @@ public class ProjectServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Collection<Part> parts = req.getParts();
         for (Part part: parts) {
+            Controller.writeFile(new User(1, "Frank"), part.getSubmittedFileName());
             part.write(settings.getRepository("Frank") + part.getSubmittedFileName());
         }
         doGet(req, resp);

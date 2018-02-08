@@ -3,7 +3,7 @@
   User: Админ
   Date: 04.02.2018
   Time: 20:37
-  To change this template use File | Settings | File Templates.
+  To change this template use UserFile | Settings | UserFile Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
