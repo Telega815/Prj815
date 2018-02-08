@@ -17,24 +17,21 @@ import java.io.*;
 import java.util.Collection;
 
 @MultipartConfig(location="C:/Users/sei66/Desktop/Prj815/rep/tmp", fileSizeThreshold=1024*1024*20, maxFileSize=1024*1024*20*5, maxRequestSize=1024*1024*20*5*5)
-public class ProjectServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
     Settings settings = Settings.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/views/Page.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher("/views/Login.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Collection<Part> parts = req.getParts();
-        for (Part part: parts) {
-            Controller.writeFile(new User(1, "Frank"), part.getSubmittedFileName());
-            part.write(settings.getRepository("Frank") + part.getSubmittedFileName());
-            System.out.println(part.getSubmittedFileName());
-        }
-        doGet(req, resp);
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
+
+
+
     }
 
 }
-
