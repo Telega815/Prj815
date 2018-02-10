@@ -14,5 +14,7 @@ public interface UserStorage {
 
     User findOne(String username);
 
+    User writeOne(String username);
+
     int delete(String username);
 }

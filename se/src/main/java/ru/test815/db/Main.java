@@ -1,6 +1,9 @@
 package ru.test815.db;
 
 
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import ru.test815.db.UserPackage.PwdStorage;
+import ru.test815.db.UserPackage.PwdStorageImpl;
 import ru.test815.db.UserPackage.UserStorage;
 import ru.test815.db.UserPackage.UserStorageImpl;
 
@@ -15,9 +18,20 @@ public class Main {
         storage.add("Mike");
         storage.add("Lisa");
         */
-        System.out.println(getId("Frank"));
+//        String salt = BCrypt.gensalt();
+//        Settings settings = Settings.getInstance();
+//        System.out.println(salt);//+settings.value("Jdbc.s2")
+//
+        System.out.println(new SaltGenerator().getSalt(20));
+        System.out.println(new SaltGenerator().getSalt(20));
+        System.out.println(new SaltGenerator().getSalt(10));
+        System.out.println(new SaltGenerator().getSalt(10));
+
+        System.out.println(new PwdStorageImpl(new JdbcTemplateFactory().getJdbcTemplate()).getPwdData(1).getSalt());
+
+//        System.out.println(BCrypt.hashpw("123456", salt));
+//        System.out.println(Controller.getInstance().login("Frank", "123456"));
 //        for (String str: storage.values()) {
-//            System.out.println(str);
 //        }
          //new File(settings.getRepository("Frank")).mkdirs();
         //storage.close();

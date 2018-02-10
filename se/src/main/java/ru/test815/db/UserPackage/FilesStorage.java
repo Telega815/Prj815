@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface FilesStorage {
     // Маппер, превращающий строку из таблицы БД в объект класса Person
-    RowMapper<UserFile> ROW_MAPPER = (ResultSet resultSet, int rowNum) -> new UserFile(resultSet.getInt("uid"), resultSet.getInt("onwer_id"), resultSet.getString("name"));
+    RowMapper<FileUser> ROW_MAPPER = (ResultSet resultSet, int rowNum) -> new FileUser(resultSet.getInt("uid"), resultSet.getInt("onwer_id"), resultSet.getString("name"));
 
-    UserFile findOne(int userID);
+    FileUser findOne(int userID);
 
-    UserFile findOne(String filename);
+    FileUser findOne(String filename);
 
     int delete(String filename);
 

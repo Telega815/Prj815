@@ -1,6 +1,6 @@
 package ru.test815.db.UserPackage;
 
-public class UserFile {
+public class FileUser {
 
     private int fileID;
 
@@ -8,7 +8,7 @@ public class UserFile {
 
     private String filename;
 
-    public UserFile(int fileID, int ownerID, String filename){
+    public FileUser(int fileID, int ownerID, String filename){
         this.fileID = fileID;
         this.ownerID = ownerID;
         this.filename = filename;

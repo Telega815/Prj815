@@ -28,10 +28,16 @@ public class UserStorageImpl implements UserStorage {
         try {
             user = jdbcTemplate.queryForObject("select * from users where name = ?", new Object[]{username}, ROW_MAPPER);
         } catch (DataAccessException dataAccessException) {
-            LOGGER.debug("Couldn't find entity of type Person with id {}", username);
+            LOGGER.debug("Couldn't find user with id {}", username);
         }
 
         return user;
+    }
+
+    @Override
+    public User writeOne(String username){
+        jdbcTemplate.update("INSERT INTO users (name) values (?)", username);
+        return findOne(username);
     }
 
     @Override

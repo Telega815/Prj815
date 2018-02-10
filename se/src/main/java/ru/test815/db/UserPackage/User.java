@@ -9,7 +9,7 @@ public class User {
 
     private String name;
 
-    private ArrayList<UserFile> userFiles;
+    private ArrayList<FileUser> userFiles;
 
     public User(int id, String name){
         this.userID = id;
@@ -37,12 +37,12 @@ public class User {
         this.name = name;
     }
 
-    public List<UserFile> getFiles(){
+    public List<FileUser> getFiles(){
         return userFiles;
     }
     //----------------------------------------------------------------------------------------
 
-    public void addFile(UserFile userFile){
+    public void addFile(FileUser userFile){
         this.userFiles.add(userFile);
     }
 
