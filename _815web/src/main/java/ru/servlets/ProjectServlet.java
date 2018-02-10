@@ -2,7 +2,6 @@ package ru.servlets;
 
 
 import ru.test815.db.Controller;
-import ru.test815.db.Settings;
 import ru.test815.db.UserPackage.User;
 
 import javax.servlet.ServletException;
@@ -13,12 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.io.*;
 
-
-import java.util.Collection;
-
-@MultipartConfig(location="C:/Users/sei66/Desktop/Prj815/rep/tmp", fileSizeThreshold=1024*1024*20, maxFileSize=1024*1024*20*5, maxRequestSize=1024*1024*20*5*5)
+@MultipartConfig(location="C:/TempShit/tmp", fileSizeThreshold=1024*1024*20, maxFileSize=1024*1024*20*5, maxRequestSize=1024*1024*20*5*5)
 public class ProjectServlet extends HttpServlet {
-    Settings settings = Settings.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,12 +22,11 @@ public class ProjectServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Collection<Part> parts = req.getParts();
-        for (Part part: parts) {
-            Controller.writeFile(new User(1, "Frank"), part.getSubmittedFileName());
-            part.write(settings.getRepository("Frank") + part.getSubmittedFileName());
-            System.out.println(part.getSubmittedFileName());
+        for (Part part: req.getParts()) {
+            part.getSubmittedFileName();
         }
+
+        Controller.getInstance().writeParts(new User(1, "Frank"), req.getParts());
         doGet(req, resp);
     }
 
